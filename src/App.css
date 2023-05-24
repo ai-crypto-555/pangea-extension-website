@@ -1,5 +1,10 @@
 .App {
   background-color: #353535;
+  width: 100%;
   min-height: 100vh;
   text-align: center;
+}
+
+img {
+  width: 100%;
 }

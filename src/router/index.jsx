@@ -8,11 +8,14 @@ import LoginByEmail from "../pages/login1";
 import SignupByEmail from "../pages/signup1";
 import Price from "../pages/price";
 
+import Dashboard from "../pages/dashboard";
+
 export default function Router() {
     return (
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<Welcome />} />
+                <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/loginByEmail" element={<LoginByEmail />} />
                 <Route path="/signupByEmail" element={<SignupByEmail />} />

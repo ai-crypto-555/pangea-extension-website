@@ -8,3 +8,15 @@
 img {
   width: 100%;
 }
+
+tr {
+  border-bottom-color: #F1F5F9 !important;
+}
+
+.table :where(th, td) {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.6rem !important;
+  padding-bottom: 0.6rem !important;
+  vertical-align: middle;
+}

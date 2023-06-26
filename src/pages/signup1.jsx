@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import { useNavigate } from "react-router-dom";
 import mainLogo from '../assets/images/main-logo.svg';
 import emailGreyIcon from '../assets/images/email-grey-icon.svg';
 import lockIcon from '../assets/images/lock.svg';
@@ -10,10 +10,11 @@ import userIcon from '../assets/images/user.svg';
 export default function SignupByEmail() {
 
     const [password, setPassword] = useState('password');
+    const navigation = useNavigate();
 
     return (
         <div className="flex flex-col items-center">
-            <div className="w-[200px] mt-[80px] sm:mt-[200px]">
+            <div className="w-[200px] mt-[80px] sm:mt-[200px] cursor-pointer" onClick={()=>navigation('/')}>
                 <img src={mainLogo} alt="main logo" />
             </div>
             <div className="mt-[60px] sm:mt-[100px] w-full sm:w-[400px] flex flex-col gap-y-[10px] p-[10px]">

@@ -17,18 +17,48 @@ import arcImg from '../assets/images/welcome/Vector 32.svg';
 import priceImg from '../assets/images/welcome/price.svg';
 import priceImg1 from '../assets/images/welcome/price1.svg';
 
+import { Menu } from '@mui/material';
+
 import { Squash as Hamburger } from 'hamburger-react';
 
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
 export default function Welcome() {
-
+    
     const navigation = useNavigate();
+    
+    //
     const [isOpen, setOpen] = useState(false);
+    const [anchorEl, setAnchorEl] = useState(null);
+    const open = Boolean(anchorEl);
+    const handleClick = (event) => {
+        setAnchorEl(event.currentTarget);
+    };
+    const handleClose = () => {
+        setAnchorEl(null);
+        setOpen(false);
+    };
+
+    // function
+    const login = () => {
+        navigation('/login');
+    }
+
+    const signup = () => {
+        navigation('/signup');
+    }
+
+    const price = () => {
+        navigation('/price');
+    }
+
+    const home = () => {
+        navigation('/dashboard');
+    }
 
     return (
-        <div className="flex flex-col w-full px-[20px] sm:px-[15%] bg-white">
+        <div className="flex flex-col w-full px-[20px] sm:px-[15%] bg-white py-[20px]">
 
             <div className="hidden md:block">
                 <div className="flex flex-row justify-between items-center py-[20px]">
@@ -37,14 +67,14 @@ export default function Welcome() {
                     </div>
                     <div className="flex flex-row items-center gap-x-[100px] text-black text-[18px] font-semibold">
                         <div className="flex flex-row items-center gap-x-[20px]">
-                            <span className="cursor-pointer">Home</span>
-                            <span className="cursor-pointer">Product</span>
-                            <span className="cursor-pointer">Pricing</span>
-                            <span className="cursor-pointer">Contact Us</span>
+                            <span className="cursor-pointer" onClick={home}>Home</span>
+                            <span className="cursor-pointer" onClick={()=>{}}>Product</span>
+                            <span className="cursor-pointer" onClick={price}>Pricing</span>
+                            <span className="cursor-pointer" onClick={()=>{}}>Contact Us</span>
                         </div>
                         <div className="flex flex-row items-center gap-x-[20px]">
-                            <span className="cursor-pointer">Login</span>
-                            <div className="bg-green px-[12px] py-[9px] rounded-lg cursor-pointer">Sign Up</div>
+                            <span className="cursor-pointer" onClick={login}>Login</span>
+                            <div className="bg-green px-[12px] py-[9px] rounded-lg cursor-pointer" onClick={signup}>Sign Up</div>
                         </div>
                     </div>
                 </div>
@@ -55,8 +85,40 @@ export default function Welcome() {
                     <div className="w-[200px] mt-[10px]">
                         <img src={mainImg} alt="main image" />
                     </div>
-                    <Hamburger size={20} toggled={isOpen} toggle={setOpen}/>
-                    
+                    <div className="" onClick={handleClick}>
+                        <Hamburger size={20} toggle={setOpen} toggled={isOpen}/>
+                    </div>
+                    <Menu
+                        id="basic-menu"
+                        anchorEl={anchorEl}
+                        className="clearCanvas-wrapper"
+                        open={open}
+                        onClose={handleClose}
+                        MenuListProps={{
+                            'aria-labelledby': 'basic-button',
+                        }}
+                    >
+                        <div className="flex flex-col bg-white w-[180px]">
+                            <div className="flex flex-row gap-x-[10px] items-center px-[18px] py-[12px] cursor-pointer border-b border-b-[#ffffff17]">
+                                <span className="text-black text-[14px]">Home</span>
+                            </div>
+                            <div className="flex flex-row gap-x-[10px] items-center px-[18px] py-[12px] cursor-pointer border-b border-b-[#ffffff17]">
+                                <span className="text-black text-[14px]">Product</span>
+                            </div>
+                            <div className="flex flex-row gap-x-[10px] items-center px-[18px] py-[12px] cursor-pointer border-b border-b-[#ffffff17]">
+                                <span className="text-black text-[14px]">Pricing</span>
+                            </div>
+                            <div className="flex flex-row gap-x-[10px] items-center px-[18px] py-[12px] cursor-pointer border-b border-b-[#ffffff17]">
+                                <span className="text-black text-[14px]">Contact Us</span>
+                            </div>
+                            <div className="flex flex-row gap-x-[10px] items-center px-[18px] py-[12px] cursor-pointer border-b border-b-[#ffffff17]">
+                                <span className="text-black text-[14px]">Login</span>
+                            </div>
+                            <div className="flex flex-row gap-x-[10px] items-center px-[18px] py-[12px] cursor-pointer">
+                                <span className="text-black text-[14px]">Sign Up</span>
+                            </div>
+                        </div>
+                    </Menu>
                 </div>
             </div>
 

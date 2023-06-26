@@ -15,3 +15,15 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.clearCanvas-wrapper {
+  .MuiPaper-root {
+    border-radius: 0px !important;
+    max-height: unset !important;
+  }
+
+  .MuiList-root {
+    padding: unset !important;
+  }
+}
+

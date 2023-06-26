@@ -1,4 +1,6 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+
 import mainLogo from '../assets/images/main-logo.svg';
 import searchLogo from '../assets/images/search.svg';
 import bellLogo from '../assets/images/bell.svg';
@@ -11,11 +13,14 @@ import trushLogo from '../assets/images/trush.svg';
 import cashLogo from '../assets/images/cash.svg';
 
 export default function Dashboard() {
+
+    const navigation = useNavigate();
+
     return (
         <div className="flex flex-col">
             <div className="flex flex-row bg-[#474747] px-[70px] py-[15px] justify-between items-center">
                 <div className="flex flex-row gap-x-[100px] justify-between items-center">
-                    <div className="w-[130px]">
+                    <div className="w-[130px] cursor-pointer" onClick={()=>navigation('/')}>
                         <img src={mainLogo} alt="main logo" />
                     </div>
                     <div className="bg-[#F1F5F9] w-[320px] h-[32px] rounded-full relative flex flex-row items-center">

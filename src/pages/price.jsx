@@ -1,15 +1,19 @@
 import React, { useState } from "react";
-
+import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
+import { useNavigate } from "react-router-dom";
 import mainLogo from '../assets/images/main-logo.svg';
 
 export default function Price() {
 
     const [month, setMonth] = useState(true);
+    const navigation = useNavigate();
+    const stripe = useStripe();
+    const element = useElements();
 
     return (
         <div className="flex flex-col">
             <div className="flex p-[30px] sm:p-[40px]">
-                <div className="w-[150px] sm:w-[200px]">
+                <div className="w-[150px] sm:w-[200px] cursor-pointer" onClick={()=>navigation('/')}>
                     <img src={mainLogo} alt="main logo" />
                 </div>
             </div>
